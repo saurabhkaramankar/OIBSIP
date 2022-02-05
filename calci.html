@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simplecalcultor</title>
+    <link rel="stylesheet" href="calci.css">
+    <link rel="stylesheet" type="text/css">
+</head> 
+<body>
+    
+        <div class="container">
+            <div class="display">
+                <input id="screen" type="text" placeholder="0">
+            </div>
+            <div class="btns">
+                
+                    <button id="ce" onclick="backspc()">CE</button>
+                
+                    <button class="btn">(</button>
+                    <button class="btn">)</button>
+                    <button class="btn">%</button>
+                    <button id="ac" onclick="screen.value=''">AC</button>
+               
+
+                    <button class="btn">7</button>
+                    <button class="btn">8</button>
+                    <button class="btn">9</button>
+                   
+                    <button class="btn">4</button>
+                    <button class="btn">5</button>
+                    <button class="btn">6</button>
+
+                    <button class="btn">1</button>
+                    <button class="btn">2</button>
+                    <button class="btn">3</button>
+                    
+                    <button class="btn">÷</button>
+                    <button class="btn">×</button>
+                    <button class="btn">+</button>
+                    <button class="btn">-</button>
+           
+
+                    <button onclick="sqrt()">√</button>
+                    <button onclick="pow()">x <span style="position: relative; bottom: .4em; right: .1em;">y</span> </button>
+                    <button class="btn">0</button>
+                    <button class="btn">.</button>
+                    
+                    <button class="equal-sign" id="eval" onclick="screen.value=eval(screen.value)">=</button>
+              
+            </div>
+        </div>
+     
+    <h2>Simple Calculator <i style="font-size: 100px;" class="fa fa-reply"></i></h2>
+    <h3>Saurabh Karmanakar <i style="font-size: 100px;" class="fa fa-reply"></i></h3>
+    <h4>Oasis Infobyte <i style="font-size: 100px;" class="fa fa-reply"></i></h4>
+
+</body> 
+<script>
+    var screen=document.querySelector('#screen');
+    var btn=document.querySelectorAll('.btn');
+
+    for(item of btn)
+    {
+        item.addEventListener('click',(e)=>{
+            btntext=e.target.innerText;
+
+            if(btntext =='×')
+            {
+                btntext= '*';
+            }
+
+            if(btntext=='÷')
+            {
+                btntext='/';
+            }
+            screen.value+=btntext;
+        });
+    }
+   
+    function pow()
+    {
+        screen.value=Math.pow(screen.value,2);
+    }
+
+    function sqrt()
+    {
+        screen.value=Math.sqrt(screen.value,2);
+    }
+
+
+    function backspc()
+    {
+        screen.value=screen.value.substr(0,screen.value.length-1);
+    }
+</script>  
+</html>
